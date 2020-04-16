@@ -12,25 +12,25 @@ spec:
         service: postgres
     spec:
       containers:
-      - name: postgres
-        image: postgres:10.5-alpine
-        volumeMounts:
-        - name: postgres-volume-mount
-          mountPath: /var/lib/postgresql/data
-          subPath: postgres
-        env:
-        - name: POSTGRES_USER
-          valueFrom:
-            secretKeyRef:
-              name: postgres-credentials
-              key: user
-        - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: postgres-credentials
-              key: password
+        - name: postgres
+          image: postgres:12.1-alpine
+          volumeMounts:
+            - name: postgres-volume-mount
+              mountPath: /var/lib/postgresql/data
+              subPath: postgres
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: user
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: password
       restartPolicy: Always
       volumes:
-      - name: postgres-volume-mount
-        persistentVolumeClaim:
-          claimName: postgres-pvc
+        - name: postgres-volume-mount
+          persistentVolumeClaim:
+            claimName: postgres-pvc

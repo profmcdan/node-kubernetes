@@ -1,7 +1,6 @@
-version: '3.7'
+version: "3.7"
 
 services:
-
   web:
     build: .
     environment:
@@ -15,7 +14,7 @@ services:
       - postgres
 
   postgres:
-    image: postgres:10.5-alpine
+    image: postgres:12.1-alpine
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres

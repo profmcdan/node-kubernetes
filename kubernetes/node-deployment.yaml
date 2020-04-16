@@ -12,11 +12,11 @@ spec:
         app: node
     spec:
       containers:
-      - name: node
-        image: gcr.io/<PROJECT_ID>/node-kubernetes:v0.0.1 # update
-        env:
-        - name: NODE_ENV
-          value: "development"
-        - name: PORT
-          value: "3000"
+        - name: node
+          image: gcr.io/recruiters-274206/node-kubernetes:v0.0.1 # update
+          env:
+            - name: NODE_ENV
+              value: "development"
+            - name: PORT
+              value: "3000"
       restartPolicy: Always
